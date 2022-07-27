@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Run the tests') {
              agent {
-                any { 
+                docker { 
                     image 'node:18-alpine'
                     args '-e HOME=/tmp -e NPM_CONFIG_PREFIX=/tmp/.npm'
                     reuseNode true
@@ -48,7 +48,7 @@ pipeline {
         }     
          stage('deploy to k8s') {
              agent {
-                any { 
+                docker { 
                     image 'google/cloud-sdk:latest'
                     args '-e HOME=/tmp'
                     reuseNode true
