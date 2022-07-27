@@ -48,7 +48,7 @@ pipeline {
         }     
          stage('deploy to k8s') {
              agent {
-                docker { 
+                any { 
                     image 'google/cloud-sdk:latest'
                     args '-e HOME=/tmp'
                     reuseNode true
