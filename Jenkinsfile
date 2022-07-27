@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Run the tests') {
              agent {
-                docker { 
+                any { 
                     image 'node:18-alpine'
                     args '-e HOME=/tmp -e NPM_CONFIG_PREFIX=/tmp/.npm'
                     reuseNode true
