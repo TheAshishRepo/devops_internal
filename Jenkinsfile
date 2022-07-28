@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        registryCredential = 'DockerHub'
-        imageName = 'vkuppuswamy/internal'
+        registryCredential = 'Dokerhub'
+        imageName = 'webashu/internal'
         dockerImage = ''
     }   
     stages {
