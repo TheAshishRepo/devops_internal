@@ -9,7 +9,7 @@ pipeline {
         stage("Run the test") {
             agent {
                 docker { 
-                    image 'vkuppuswamy/internal:2'
+                    image 'node:18-alpine'
                     args '-e HOME=/tmp -e NPM_CONFIG_PREFIX=/tmp/.npm'
                     reuseNode true
                 }
