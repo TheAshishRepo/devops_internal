@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 echo "checkout source code"
-                git branch: 'main', credentialsId: 'Git', url: 'https://github.com/Vinothkuppuswamy/2022_6_27_devops_internal.git'
+                git branch: 'master', url: 'https://github.com/TheAshishRepo/devops_internal.git'
                 echo "building ..."
                 sh "npm install"
                 echo "testing...."
@@ -52,7 +52,7 @@ pipeline {
             }
             steps {
                 echo "get cluster credentials"
-                sh "gcloud container clusters get-credentials terraform-cluster --zone us-central1-a --project roidtc-june22-u101"
+                sh "gcloud container clusters get-credentials demo-cluster --zone us-east1-b --project theta-shuttle-357004"
                 sh "kubectl set image deployment/internal-deployment internal=${env.imageName}:${env.BUILD_ID} --namespace=terraform"
             }
         }
