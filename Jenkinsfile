@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 echo "checkout source code"
-                git branch: 'main', credentialsId: 'Git', url: 'https://github.com/TheAshishRepo/devops_internal.git'
+                git branch: 'main', url: 'https://github.com/TheAshishRepo/devops_internal.git'
                 echo "building ..."
                 sh "npm install"
                 echo "testing...."
