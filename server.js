@@ -1,7 +1,5 @@
 'use strict';
 
-// wow, that is amazing code
-
 // express is a nodejs web server
 // https://www.npmjs.com/package/express
 const express = require('express');
@@ -9,8 +7,6 @@ const express = require('express');
 // converts content in the request into parameter req.body
 // https://www.npmjs.com/package/body-parser
 const bodyParser = require('body-parser');
-
-const { v4: uuidv4} = require('uuid');
 
 // create the server
 const app = express();
@@ -30,8 +26,8 @@ app.use(function (req, res, next) {
 // from a cloud data store
 const mockEvents = {
     events: [
-        { title: 'an event', id: uuidv4(), description: 'something really cool', location: 'virtual' },
-        { title: 'another event', id: uuidv4(), description: 'something even cooler', location: 'virtual' }
+        { title: 'an event', id: 1, description: 'something really cool' },
+        { title: 'another event', id: 2, description: 'something even cooler' }
     ]
 };
 
@@ -59,8 +55,7 @@ app.post('/event', (req, res) => {
     const ev = { 
         title: req.body.title, 
         description: req.body.description,
-        id : uuidv4(),
-        location: req.body.location
+        id : mockEvents.events.length + 1
      }
     // add to the mock array
     mockEvents.events.push(ev);
