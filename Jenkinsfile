@@ -53,7 +53,7 @@ pipeline {
             steps {
                 echo "get cluster credentials"
                 sh "gcloud container clusters get-credentials demo-cluster --zone us-east1-b --project theta-shuttle-357004"
-                sh "kubectl set image deployment/events-internal-deployment events-internal=${env.imageName}:${env.BUILD_ID} --namespace=events"
+                sh "kubectl set image deployment/internal-deployment internal=${env.imageName}:${env.BUILD_ID} --namespace=terraform"
             }
         }
         stage('Remove local docker image') {
