@@ -24,13 +24,6 @@ pipeline {
             }
 
         }
-        stage ('SonarQube Analysis'){
-            def mvnhome = tool name: maven-*, type:maven
-            withSonarQubeEnv('sonar') {
-                sh "${mvnHome}/bin/maven sonar:sonar"
-            }
-        } 
-    }
         stage('Build image') {
             steps {
                 script {
