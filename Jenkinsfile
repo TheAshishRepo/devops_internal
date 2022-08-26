@@ -29,7 +29,8 @@ pipeline {
             withSonarQubeEnv('sonar') {
                 sh "${mvnHome}/bin/maven sonar:sonar"
             }
-        }       
+        } 
+    }
         stage('Build image') {
             steps {
                 script {
