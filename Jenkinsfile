@@ -23,19 +23,7 @@ pipeline {
                 sh "npm test"
             }
 
-		stage('SonarScan') {
-		def scannerHome = tool 'sonarqube'
-		withSonarQubeEnv('sonar') {
-			sh """/var/lib/jenkins/tools/hudson.plugin.sonar.sonarRunnerInstallation/sonarqube/bin/sonar-scanner \
-			-D sonar.projectVersion=1.0-SNAPSHOT \
-			-D sonar.login=admin \
-			-D sonar.password=admin \
-			-D sonar.projectBaseDir=/var/lib/jenkins/workspace/internal/ \
-			-D sonar.projectKey=capstone \
-			-D sonar.host.url=http://34.139.83.162:9000/"""
 		}
-	}
-        }
 	
             
         stage('Build image') {
