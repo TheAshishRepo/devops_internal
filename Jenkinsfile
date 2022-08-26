@@ -23,8 +23,7 @@ pipeline {
                 sh "npm test"
             }
 
-        }
-	stage('SonarScan') {
+		stage('SonarScan') {
 		def scannerHome = tool 'sonarqube'
 		withSonarQubeEnv('sonar') {
 			sh """/var/lib/jenkins/tools/hudson.plugin.sonar.sonarRunnerInstallation/sonarqube/bin/sonar-scanner \
@@ -36,6 +35,8 @@ pipeline {
 			-D sonar.host.url=http://34.139.83.162:9000/"""
 		}
 	}
+        }
+	
             
         stage('Build image') {
             steps {
