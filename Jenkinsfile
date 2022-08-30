@@ -24,7 +24,15 @@ pipeline {
             }
 
 		}
-	
+		stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    // sh 'mvn clean package sonar:sonar'
+                    sh '''mvn sonar:sonar -Dsonar.host.url=http://34.139.94.60:9000 \
+                          -Dsonar.login=b1d1bfa64b8d3b90790432a0008ca203b6c6cc11'''
+                }
+            }
+        }
             
         stage('Build image') {
             steps {
